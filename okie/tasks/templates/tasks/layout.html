@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <h1> Tasks</h1>
+        <ul class="nav">
+            {% if user1 is None %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">login in </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'signin' %}">sign in </a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" >A user is in session </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">logout </a>
+                </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'creation' %}">task creation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'display' %}">task display</a>
+            </li>
+        </ul>
+    <hr>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

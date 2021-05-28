@@ -1,0 +1,11 @@
+{% extends "tasks/layout.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block body %}
+     <form action ="{% url 'creation' %}" method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ task_creat | crispy }}
+        <input type="submit" class="btn btn-primary">
+    </form>
+{% endblock %}

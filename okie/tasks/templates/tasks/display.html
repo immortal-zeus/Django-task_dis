@@ -1,0 +1,19 @@
+{% extends "tasks/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+    {% for task in all_task %}
+        <div class="card">
+            <center><img class="card-img-top" src="media/{{ task.task_pic }}" alt="Card image cap" style=" width : 50% " ></center>
+            <div class="card-body">
+                <h5 class="card-title">{{ task.task_title}}</h5>
+                <p class="card-text">{{ task.task_description}}</p>
+            </div>
+        </div>
+    {% empty %}
+        <h1> NO TASKS. </h1>
+    {% endfor %}
+
+    <h1> <a href="{% url 'inc' %}"> Next Tasks</a></h1>
+{% endblock %}
